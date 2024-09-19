@@ -45,16 +45,15 @@ unsigned computeHash(const unsigned char \*memory, int length) {<br />
   &emsp;hash ^= hash >> 11; <br />
   &emsp;hash += hash << 15; <br />
   &emsp;return hash;<br />
-
-}<br /><br />
+}<br />
 
 struct User {<br />
   &emsp;unsigned id; char name[128];<br />
-};<br /><br />
+};<br />
 
 struct Transaction {<br />
   &emsp;unsigned sender; unsigned receiver; double coins; long long time;<br />
-};<br /><br />
+};<br />
 
 struct TransactionBlock {<br />
   &emsp;unsigned id;<br />
