@@ -34,31 +34,31 @@
 Използвайте описаните по-долу структури и функция за хеширане наготово, **без да ги променяте**:
 
 unsigned computeHash(const unsigned char \*memory, int length) {
-  unsigned hash = 0xbeaf;
-  for (int c = 0; c < length; c++) {
-    hash += memory[c];
-    hash += hash << 10;
-    hash ^= hash >> 6;
-  }
+  &emsp;unsigned hash = 0xbeaf;
+  &emsp;for (int c = 0; c < length; c++) {
+    &emsp;&emsp;hash += memory[c];
+    &emsp;&emsp;hash += hash << 10;
+    &emsp;&emsp;hash ^= hash >> 6;
+  &emsp;}
 
-  hash += hash << 3; 
-  hash ^= hash >> 11; 
-  hash += hash << 15; 
-  return hash;
+  &emsp;hash += hash << 3; 
+  &emsp;hash ^= hash >> 11; 
+  &emsp;hash += hash << 15; 
+  &emsp;return hash;
 
 }
 
 struct User {
-  unsigned id; char name[128];
+  &emsp;unsigned id; char name[128];
 };
 
 struct Transaction {
-  unsigned sender; unsigned receiver; double coins; long long time;
+  &emsp;unsigned sender; unsigned receiver; double coins; long long time;
 };
 
 struct TransactionBlock {
-  unsigned id;
-  unsigned prevBlockId; unsigned prevBlockHash;
-  int validTransactions;
-  Transaction transactions[16]; 
+  &emsp;unsigned id;
+  &emsp;unsigned prevBlockId; unsigned prevBlockHash;
+  &emsp;int validTransactions;
+  &emsp;Transaction transactions[16]; 
 };
