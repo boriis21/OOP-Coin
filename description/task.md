@@ -33,32 +33,32 @@
 
 Използвайте описаните по-долу структури и функция за хеширане наготово, **без да ги променяте**:
 
-unsigned computeHash(const unsigned char \*memory, int length) {
-  &emsp;unsigned hash = 0xbeaf;
-  &emsp;for (int c = 0; c < length; c++) {
-    &emsp;&emsp;hash += memory[c];
-    &emsp;&emsp;hash += hash << 10;
-    &emsp;&emsp;hash ^= hash >> 6;
-  &emsp;}
+unsigned computeHash(const unsigned char \*memory, int length) {<br />
+  &emsp;unsigned hash = 0xbeaf;<br />
+  &emsp;for (int c = 0; c < length; c++) {<br />
+    &emsp;&emsp;hash += memory[c];<br />
+    &emsp;&emsp;hash += hash << 10;<br />
+    &emsp;&emsp;hash ^= hash >> 6;<br />
+  &emsp;}<br /><br />
 
-  &emsp;hash += hash << 3; 
-  &emsp;hash ^= hash >> 11; 
-  &emsp;hash += hash << 15; 
-  &emsp;return hash;
+  &emsp;hash += hash << 3; <br />
+  &emsp;hash ^= hash >> 11; <br />
+  &emsp;hash += hash << 15; <br />
+  &emsp;return hash;<br />
 
-}
+}<br /><br />
 
-struct User {
-  &emsp;unsigned id; char name[128];
-};
+struct User {<br />
+  &emsp;unsigned id; char name[128];<br />
+};<br /><br />
 
-struct Transaction {
-  &emsp;unsigned sender; unsigned receiver; double coins; long long time;
-};
+struct Transaction {<br />
+  &emsp;unsigned sender; unsigned receiver; double coins; long long time;<br />
+};<br /><br />
 
-struct TransactionBlock {
-  &emsp;unsigned id;
-  &emsp;unsigned prevBlockId; unsigned prevBlockHash;
-  &emsp;int validTransactions;
-  &emsp;Transaction transactions[16]; 
+struct TransactionBlock {<br />
+  &emsp;unsigned id;<br />
+  &emsp;unsigned prevBlockId; unsigned prevBlockHash;<br />
+  &emsp;int validTransactions;<br />
+  &emsp;Transaction transactions[16]; <br />
 };
