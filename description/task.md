@@ -1,5 +1,3 @@
-﻿Последна редакция: **18.03.2023 г.**
-
 **Общи изисквания към домашната работа**
 
 Решенията, които предавате, трябва да отговарят на следните общи условия и ограничения:
@@ -36,41 +34,31 @@
 Използвайте описаните по-долу структури и функция за хеширане наготово, **без да ги променяте**:
 
 unsigned computeHash(const unsigned char \*memory, int length) {
+  unsigned hash = 0xbeaf;
+  for (int c = 0; c < length; c++) {
+    hash += memory[c];
+    hash += hash << 10;
+    hash ^= hash >> 6;
+  }
 
-unsigned hash = 0xbeaf;
-
-for (int c = 0; c < length; c++) {
-
-hash += memory[c];
-
-hash += hash << 10;
-
-hash ^= hash >> 6;
-
-}
-
-hash += hash << 3; hash ^= hash >> 11; hash += hash << 15; return hash;
+  hash += hash << 3; 
+  hash ^= hash >> 11; 
+  hash += hash << 15; 
+  return hash;
 
 }
 
 struct User {
-
-unsigned id; char name[128];
-
+  unsigned id; char name[128];
 };
 
 struct Transaction {
-
-unsigned sender; unsigned receiver; double coins; long long time;
-
+  unsigned sender; unsigned receiver; double coins; long long time;
 };
 
 struct TransactionBlock {
-
-unsigned id;
-
-unsigned prevBlockId; unsigned prevBlockHash;
-
-int validTransactions;
-
-Transaction transactions[16]; };
+  unsigned id;
+  unsigned prevBlockId; unsigned prevBlockHash;
+  int validTransactions;
+  Transaction transactions[16]; 
+};
