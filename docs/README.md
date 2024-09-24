@@ -61,3 +61,4 @@ struct TransactionBlock&nbsp; {<br />
   &emsp;int validTransactions;<br />
   &emsp;Transaction transactions[16]; <br />
 };
+
